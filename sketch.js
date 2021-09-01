@@ -8,7 +8,7 @@ var BG, spaceImg, sceneryImg;
 var alien, alienImg, bullet, bulletImg, bGroup;
 var youWon, wonImg, youLost, lostImg;
 var score = 0;
-var bulletCount = 15;
+var bulletCount = 50;
 var gameState = 0;
 
 function preload()
@@ -112,7 +112,7 @@ function draw() {
 
 		if(coinGroup.isTouching(spaceship)){
 			coinGroup.destroyEach();
-			score++;
+			score = score+2;
 		}
 
 		if(obstaclesGroup.isTouching(spaceship)){
@@ -125,7 +125,7 @@ function draw() {
 			gameState = 4;
 		}
 
-		if(score === 2){
+		if(score === 30){
 			if(frameCount % 150===0){
 			  waterPlanet = createSprite(1200, 400, 10, 10);
 			  waterPlanet.addImage(waterPlanetImg);
@@ -163,7 +163,7 @@ function draw() {
 
 		if(coinGroup.isTouching(spaceship)){
 			coinGroup.destroyEach();
-			score++;
+			score = score+2;
 		}
 
 		if(monsterGroup.isTouching(spaceship)){
@@ -190,7 +190,7 @@ function draw() {
 			gameState = 2;
 		}
 
-		if(score === 5){
+		if(score === 50){
 			gameState = 3;
 		}
 
@@ -222,7 +222,7 @@ function draw() {
 			gameState = 4;
 		}
 
-		if(bulletCount < 0){
+		if(bulletCount < 5){
 			if(frameCount%120===0){
 				portal = createSprite(1200, 600, 10, 10);
 				portal.addImage(portalImg);
